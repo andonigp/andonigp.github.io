@@ -1,0 +1,194 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Andoni Goicoechea - Tableau TripAdvisor</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo">Andoni Goicoechea</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="index.html">Home</a></li>
+							<li><a href="elements.html">Restaurants Tableau</a></li>
+							<li class="active"><a href="webscrapper.html">Web Scraper</a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="https://www.linkedin.com/in/andoni-goicoechea-pederzini/" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
+							<li><a href="https://github.com/andonigp" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<h1>Sofifa<br />
+									Web Scraper</h1>
+								</header>
+
+								<!-- Text stuff -->
+									<hr />
+
+									<p style="text-align:center"> ¿Are you a football (soccer) fan? <br />
+										¿Would you like to have data for your advanced analysis? </p>
+
+									<a href="https://sofifa.com/?r=220064&set=true" target="_blank" class="image main"><img src="images/Sofifa-players.jpg" alt="" /></a>
+								
+									<hr />
+								
+									<header>
+										<h4>Data Source</h4>
+										<p>www.sofifa.com</p>
+									</header>
+									<p>As you may know, sofifa is a web that contains the different tables that conform the EA FIFA video game database, in its different editions. Some of the tables contained
+										on the website are:<ul>
+											<li>Players attributes: more than 50 different properties of each player from the game.</sli>
+											<li>Player Domestic League: domestic league historical stats from the player.</sli>
+											<li>Player Domestic Cups: domestic cups historical stats from the player.</sli>
+											<li>Player International Cups: international cups historical stats from the player.</sli>
+											<li>Player National Team: national team historical stats from the player.</sli>
+											<li>Player Trophies: trophies won by the player.</sli>
+											<li>Player Transfers: player transfer history..</sli>
+											<li>Teams: all the information of the national and league teams from the game.</sli>
+										</ul> 
+										</p>
+									<hr />
+
+									<header>
+										<h4>Web Scraping</h4>
+									</header>
+									<p>To scrape the data, I divided the process into 4 steps, using Rvest library:</p>
+									<header>
+										<p><u>Player Table</u></p>
+									</header>
+									<p>
+									First of all I scraped the players attributes table. This table has 76 different numeric and non numeric features such as:
+									<ul><li>Height (numeric)</li><li>Weight (numeric)</li><li>Shooting power (numeric)</li><li>Team (non numeric)</li><li>Position (non numeric)</li><li>Contract (non numeric)</li></ul>
+									The players table is divided in 60 players per page so the "difficulty" consists in obtaining the data from a page and advancing to the next page, until we've obtained all the players.
+									</p>
+									<header>
+										<p><u>Player Image</u></p>
+									</header>
+									<p>
+									Assuming that later we will use the data to create a report or a dashboard we need also to scrappe the url that contains each players png image and storing it in a table linked to a player_id. 
+									When obtaining this url we may as well create the url that on "Player Stats" will leads to every player's real life stats for every season.
+									<br />
+
+									<a href="webscrapper.html" target="_blank" class="image main"><img src="images/player_stats.jpg" alt="" /></a>
+
+									</p>
+									<header>
+										<p><u>Teams</u></p>
+									</header>
+									<p>
+									Not only players may be relevant for analysis, also teams may be important when creating sport insight or when gathering information for a sport analytics project.
+									To scrape teams I used a script similar to players table, which navigates to a specific link, searches for the containing table and starts extracting all the lines in the table
+									into a data frame. The extracted information is: "Team", "League", "OVA", "ATT", "MID", "DEF", "Transfer.Budget", "Players" and "Logo".
+									</p>
+									<header>
+										<p><u>Player Stats</u></p>
+									</header>
+									<p>
+									The last step is to extract all "real life" historical data. I used the url that we previously created in the second step. You may realize that in one page we have up to 7 different tables.
+									This may represent a "difficulty" because each table is named equally and not all players provide the 7 tables. Nevertheless once we find the way to identify specifically each table we may
+									extract a lot of information with a single script.
+									</p>
+									<hr />
+
+									<header>
+										<h4>Data Base Structure</h4>
+									</header>
+									<br />
+
+									<a href="webscrapper.html" target="_blank" class="image main"><img src="images/database_structure.jpg" /></a>
+						
+								
+								
+								
+								
+				<!-- Footer -->
+							<footer>
+
+							</footer>
+
+					</div>
+
+								
+								
+				<!-- Footer -->
+								
+					<footer id="footer">
+
+						<section class="split contact">
+							<section class="alt">
+								<h3>Location</h3>
+								<p>Barcelona<br />
+								Catalunya, Spain</p>
+							</section>
+							<section>
+								<h3>Email</h3>
+								<p><a href="#">andoni.gope@gmail.com</a></p>
+							</section>
+							<section>
+								<h3>Social</h3>
+								<ul class="icons alt">
+									<li><a href="https://www.linkedin.com/in/andoni-goicoechea-pederzini/" class="icon brands alt fa-linkedin"><span class="label">Linkedin</span></a></li>
+									<li><a href="https://github.com/andonigp" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+								</ul>
+							</section>
+						</section>
+					</footer>
+
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li>&copy; Andoni Goicoechea</li></ul>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+		<!-- Counter -->
+		<!-- Default Statcounter code for Portfolio https://andonigp.github.io/ -->
+		<script type="text/javascript">
+		var sc_project=12774903; 
+		var sc_invisible=1; 
+		var sc_security="831960b2"; 
+		</script>
+		<script type="text/javascript"
+		src="https://www.statcounter.com/counter/counter.js" async></script>
+		<noscript><div class="statcounter"><a title="Web Analytics Made Easy -
+		Statcounter" href="https://statcounter.com/" target="_blank"><img
+		class="statcounter" src="https://c.statcounter.com/12774903/0/831960b2/1/"
+		alt="Web Analytics Made Easy - Statcounter"
+		referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+		<!-- End of Statcounter Code -->
+								
+	</body>
+</html>
